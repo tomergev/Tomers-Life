@@ -1,0 +1,38 @@
+<div class="jumbotron text-center">
+    <h1>The Memories</h1>
+</div>
+
+<% if (success.length > 0) { %>
+    <div class="alert alert-success">
+        <%= success %>
+    </div>
+    <% } %>
+
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>The Event</th>
+                    <th>Description</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <% for (var event of events) { %>
+                    <tr>
+                        <td class="col-sm-2 col-md-2">
+                            <%= event.name %>
+                        </td>
+                        <td>
+                            <%= event.description %>
+                        </td>
+                        <td class="col-sm-2 col-md-2">
+                            <a href="/events/<%= event.slug %>" class="btn btn-sm btn-primary">View</a>
+                            <a href="/events/<%= event.slug %>/edit" class="btn btn-sm btn-primary">Edit</a>
+                            <a href="/events/<%= event.slug %>/delete" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                    <% } %>
+
+            </tbody>
+        </table>
